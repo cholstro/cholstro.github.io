@@ -1,0 +1,284 @@
+<!doctype html>
+<html lang="us">
+<head>
+	<meta charset="utf-8">
+        <title>Tagging is Cool!</title>
+	<link href="jquery-ui.css" rel="stylesheet">
+	<style>
+	body{
+		font-family: "Trebuchet MS", sans-serif;
+		margin: 50px;
+	}
+	.demoHeaders {
+		margin-top: 2em;
+	}
+	#dialog-link {
+		padding: .4em 1em .4em 20px;
+		text-decoration: none;
+		position: relative;
+	}
+	#dialog-link span.ui-icon {
+		margin: 0 5px 0 0;
+		position: absolute;
+		left: .2em;
+		top: 50%;
+		margin-top: -8px;
+	}
+	#icons {
+		margin: 0;
+		padding: 0;
+	}
+	#icons li {
+		margin: 2px;
+		position: relative;
+		padding: 4px 0;
+		cursor: pointer;
+		float: left;
+		list-style: none;
+	}
+	#icons span.ui-icon {
+		float: left;
+		margin: 0 4px;
+	}
+	.fakewindowcontain .ui-widget-overlay {
+		position: absolute;
+	}
+	select {
+		width: 200px;
+	}
+    .hidden-button {
+        display:none
+    }
+    .submit-button {
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .submit-button:hover {
+        background-color: #218425;
+    }
+    .tag-button {
+        background-color: #DCDCDC;
+        border: none;
+        color: black;
+        padding: 5px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 12px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .tag-button:hover {
+           background-color: #C0C0C0;
+    }
+    .add-button {
+        background-color: #6495ED;
+        border: none;
+        color: white;
+        padding: 10px 22px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .add-button:hover {
+        background-color: #4169E1;
+    }
+    input[type=text], select {
+        width: 250px;
+        padding: 12px 20px;
+        margin: 8px 0;
+        display: inline-block;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+	/* Create two unequal columns that floats next to each other */
+.column {
+    float: left;
+}
+
+.left {
+  width: 60%;
+}
+
+.right {
+  width: 40%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+	
+	</style>
+</head>
+<body>
+
+<div class="row">
+  <div class="column left">
+      <h1>Image to tag:</h1>
+<img src="pic1.jpg" width=95%>
+  </div>
+  <div class="column right">
+<br><br><br>
+
+
+<h2 class="demoHeaders">Enter or select your tags here:</h2>
+<!-- This is where users click on suggested tags. -->
+<div>
+<input type="button" class="tag-button" id="title1" value="balloon" onclick="insert1(); hideButton1()">
+<input type="button" class="tag-button" id="title2" value="cave" onclick="insert2(); hideButton2()">
+<input type="button" class="tag-button" id="title3" value="water" onclick="insert3(); hideButton3()">
+<input type="button" class="tag-button" id="title4" value="boy" onclick="insert4(); hideButton4()">
+<input type="button" class="tag-button" id="title5" value="ocean" onclick="insert5(); hideButton5()">
+</div><br>
+<!-- This is where users type in tags and click Add to submit them. -->
+<div>
+	<input id="title" type="text" title="type &quot;a&quot;" placeholder="Type tags here..." maxlength="99"  onkeyup="Allow()" onkeypress="return checkSubmit(event)" />
+    <input type="submit" class="add-button" value="Add Tag" onclick="insert()" />
+</div>
+<br><br>
+<!-- This is the div where the entered tags show up. -->
+<div id="display"></div>
+<br><br>
+<input type="submit" value="Submit Tags" class="submit-button" />
+  </div>
+</div>
+
+<script type="text/javascript">
+    
+//Add tags on Enter, not just Add Tag button
+function checkSubmit(e) {
+   if(e && e.keyCode == 13) {
+       insert();
+    }
+}
+  
+var titles  = [];
+var titleInput  = document.getElementById("title");
+var titleInput1  = document.getElementById("title1");
+var titleInput2  = document.getElementById("title2");
+var titleInput3  = document.getElementById("title3");
+var titleInput4  = document.getElementById("title4");
+var titleInput5  = document.getElementById("title5");
+var messageBox  = document.getElementById("display");
+
+// Hide buttons. Bunch of these because I'm a hack.
+function hideButton1()
+{document.getElementById("title1").setAttribute("class", "hidden-button");}
+
+function hideButton2()
+{document.getElementById("title2").setAttribute("class", "hidden-button");}
+
+function hideButton3()
+{document.getElementById("title3").setAttribute("class", "hidden-button");}
+
+function hideButton4()
+{document.getElementById("title4").setAttribute("class", "hidden-button");}
+
+function hideButton5()
+{document.getElementById("title5").setAttribute("class", "hidden-button");}
+
+// Restrict input, not sure if it is actually working
+function Allow(){
+    if (!title.value.match(/[a-zA-Z0-9_\s]$/) && title.value !="") {
+        title.value="";
+        alert("Please enter only letters, numbers, underscores, and spaces.");
+    }
+}
+
+//Insert for typed-in labels
+function insert () {
+    titles.push(titleInput.value);
+    clearAndShow();
+}
+
+//An overly long list of inserts for suggested labels. I am a hack.
+function insert1 () {
+    titles.push(titleInput1.value);
+    clearAndShow();
+}
+
+function insert2 () {
+    titles.push(titleInput2.value);
+    clearAndShow();
+}
+
+function insert3 () {
+    titles.push(titleInput3.value);
+    clearAndShow();
+}
+
+function insert4 () {
+    titles.push(titleInput4.value);
+    clearAndShow();
+}
+
+function insert5 () {
+    titles.push(titleInput5.value);
+    clearAndShow();
+}
+
+function clearAndShow () {
+    titleInput.value = "";
+    messageBox.innerHTML = "";
+    messageBox.innerHTML += "Tags: " + titles.join(", ") + "<br/>";
+}
+</script>
+
+
+
+<!-- Autocomplete -->
+<script src="external/jquery/jquery.js"></script>
+<script src="jquery-ui.js"></script>
+<script>
+
+
+var availableTags = [
+	"balloon",
+	"kid",
+	"boy",
+	"cave",
+	"beach",
+	"ocean",
+	"water",
+    "chase",
+	"chasing",
+	"reach",
+	"red",
+	"play",
+	"stretch",
+	"framed",
+	"string",
+	"playing",
+	"stretching",
+	"sky",
+	"blue",
+    "photograph",
+    "photo",
+	"wave",
+	"light",
+	"hair"
+];
+$( "#title" ).autocomplete({
+	source: availableTags
+});
+
+</script>
+
+
+</body>
+</html>
