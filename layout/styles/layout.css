@@ -87,6 +87,7 @@
 
 .content h1{padding-top:20px;}
 .content h2{padding-top:30px;}
+.content h3{padding-top:10px;}
 .content{margin:0 20px 0 20px}
 /* Comments */
 #comments ul{margin:0 0 40px 0; padding:0; list-style:none;}
