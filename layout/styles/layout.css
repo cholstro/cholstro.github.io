@@ -250,7 +250,10 @@ input:focus, textarea:focus, *:required:focus{border-color:#C0AB8F;}
 
 .btn, .btn.inverse:hover{color:#FFFFFF; background-color:#C0AB8F; border-color:#C0AB8F;}
 .btn:hover, .btn.inverse{color:inherit; background-color:transparent; border-color:inherit;}
-
+.hangingindent {
+  padding-left: 22px ;
+  text-indent: -22px ;
+}
 
 /* Rows */
 .row0, .row0 a{}
