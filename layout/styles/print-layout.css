@@ -2,7 +2,7 @@
 .print_header {display: inline; max-width: 90%; margin-left: 20px; margin-right: 20px;}
 .container{padding: 0;}
 #copyright{display: none;}
-html, body{margin:0; padding:0; font-size: 11px; line-height: 1.5em; color: #000000;}
+html, body{margin:0; padding:0; font-size: 12px; line-height: 1.5em; color: #000000;}
 h1, h2, h3, h4, h5, h6, .heading{font-size:16px; margin: 0 0 10px 0;}
 .content h2 {padding-top: 15px;}
 .content h2, p, a {color: #000000;}
