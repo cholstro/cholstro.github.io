@@ -7,4 +7,4 @@ h1, h2, h3, h4, h5, h6, .heading{font-size:16px; margin: 0 0 10px 0;}
 .content h2 {padding-top: 15px;}
 .content h2, p, a {color: #000000;}
 h1 {padding-top: 25px; padding-left: 20px; font-size: 18px;}
-.printer_header p {padding-left:20px;}
+.print_header p {padding-left:20px;}
