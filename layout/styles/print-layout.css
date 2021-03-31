@@ -2,5 +2,7 @@
 .print_header {display: inline; max-width: 90%;}
 .container{padding: 0;}
 #copyright{display: none;}
-html, body{margin:0; padding:0; font-size: 10px; line-height: 1.3em; color: #000000;}
-h1, h2, h3, h4, h5, h6, .heading{font-size:15px;}
+html, body{margin:0; padding:0; font-size: 9px; line-height: 1.3em; color: #000000;}
+h1, h2, h3, h4, h5, h6, .heading{font-size:14px;}
+.content h2 {padding-top: 15x;}
+.content h2, p, a {color: #000000;}
