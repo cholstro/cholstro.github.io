@@ -419,3 +419,9 @@ table a, #comments a{background-color:inherit;}
 	#pageintro .heading{font-size:2rem;}
 	#pageintro .txtwrap{display:none;}
 }
+
+/* Hide Print-Only Stuff
+--------------------------------------------------------------------------------------------------------------- */
+.print_header {
+	display:none:
+}
