@@ -423,5 +423,5 @@ table a, #comments a{background-color:inherit;}
 /* Hide Print-Only Stuff
 --------------------------------------------------------------------------------------------------------------- */
 .print_header {
-	display:none:
+	display:none;
 }
