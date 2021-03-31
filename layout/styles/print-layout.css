@@ -5,3 +5,6 @@
  {
     display: inline;
 }
+.content p {
+    font-size: 11pt;
+}
